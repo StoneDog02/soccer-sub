@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Outfit", var(--font-sans);
+
+  --color-pitch-950: #07120a;
+  --color-pitch-900: #0c1a10;
+  --color-pitch-800: #122618;
+  --color-pitch-100: #e8f7ec;
+  --color-accent: #3ee07a;
+  --color-accent-dim: #2bb85f;
+  --color-ink: #f4fff7;
+  --color-muted: #8fb39a;
+}
+
+html,
+body {
+  @apply min-h-screen antialiased;
+  background: radial-gradient(
+      ellipse 120% 80% at 50% -20%,
+      rgba(62, 224, 122, 0.12),
+      transparent
+    ),
+    var(--color-pitch-950);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: rgba(62, 224, 122, 0.35);
+  color: var(--color-pitch-950);
+}
+
+.glass-panel {
+  @apply rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset] backdrop-blur-md;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-[var(--color-accent)] to-emerald-200 bg-clip-text text-transparent;
+}
+
+.field {
+  @apply w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none ring-0 placeholder:text-white/35 focus:border-[var(--color-accent)]/50 focus:ring-2 focus:ring-[var(--color-accent)]/25;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-[var(--color-accent)] px-5 py-2.5 text-sm font-semibold text-[var(--color-pitch-950)] shadow-lg shadow-[var(--color-accent)]/20 transition hover:bg-[var(--color-accent-dim)] disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/90 transition hover:border-white/25 hover:bg-white/10;
+}
+
+.tab-active {
+  @apply border-[var(--color-accent)]/60 bg-[var(--color-accent)]/10 text-[var(--color-accent)];
+}
+
+.tab-idle {
+  @apply border-transparent text-white/55 hover:border-white/10 hover:bg-white/5 hover:text-white/85;
+}
